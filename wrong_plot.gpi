@@ -1,0 +1,11 @@
+#!/usr/bin/gnuplot
+set encoding utf8
+set datafile separator ','
+set terminal pngcairo enhanced color size 30cm, 20cm font "Times-Roman, 13"
+set output "wrong_plot.png"
+
+set grid
+set xrange [0:100]
+set yrange [0:60]
+
+plot 'maximal.csv' using 1:($2*1000) with point ps 2 pt 6 lc rgb "blue" notitle

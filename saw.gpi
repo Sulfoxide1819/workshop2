@@ -1,0 +1,24 @@
+#! /usr/bin/gnuplot 
+set encoding utf8
+set terminal pngcairo enhanced color size 15cm,10cm font "Times-Roman,13"
+set output 'saw.png'
+
+unset border
+set samples 500
+set xrange [0:3]
+set yrange [-3:3]
+set xzeroaxis lt -1 lw 1
+set yzeroaxis lt -1 lw 1
+unset xtics 
+unset ytics 
+set arrow from graph 0.98,0.5 to graph 1.02,0.5 filled size 0.1,20,60 lc black
+set arrow from graph 0,0.98 to graph 0,1.02 filled size 0.1,20,60 lc black
+set ylabel "U" offset 1,5  rotate by 0
+set xlabel "t" offset 17,5
+
+A = 2
+T = 0.5
+f(x) = 2*A * ( (x/T) - floor(x/T) ) - A
+part(x) = ( x <= 2.0 ) ? f(x) : NaN
+
+plot part(x) with lines lw 1.5 lc rgb "black" notitle

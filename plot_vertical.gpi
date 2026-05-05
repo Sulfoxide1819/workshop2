@@ -1,0 +1,12 @@
+#!/usr/bin/gnuplot
+set encoding utf8
+set datafile separator ','
+set terminal pngcairo enhanced color size 30cm, 20cm font "Times-Roman, 13"
+set output "plot_horizontal.png"
+
+set grid
+set xlabel "Длина линии на экране, мм"
+set ylabel "Эффективное напряжение, В"
+set xrange [0:55]
+
+plot 'horizontal.csv' using 1:2 with point ps 2 pt 7 lc rgb "blue" notitle

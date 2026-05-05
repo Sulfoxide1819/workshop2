@@ -1,0 +1,12 @@
+#!/usr/bin/gnuplot
+set encoding utf8
+set datafile separator ','
+set terminal pngcairo enhanced color size 30cm, 20cm font "Times-Roman, 13"
+set output "plot_maximal.png"
+
+set grid
+set xlabel "Длина линии на экране, мм"
+set ylabel "Эффективное напряжение, мВ"
+set xrange [5:55]
+
+plot 'maximal.csv' using 1:($2*1000) with point ps 2 pt 6 lc rgb "blue" notitle
